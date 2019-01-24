@@ -25,4 +25,5 @@ script:
 - sfdx force:org:display -u ciorg
 - sfdx force:source:push -u ciorg
 - sfdx force:apex:test:run -u ciorg --wait 10
+- sfdx force:data:soql:query -q "Select SandboxName, LicenseType, AutoActivate, Description from SandboxInfo where LicenseType='DEVELOPER' limit 10" -t
 - sfdx force:org:delete -u ciorg -p
